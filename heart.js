@@ -25,7 +25,7 @@ var init = function () {
     if (loaded) return;
     loaded = true;
     var mobile = window.isDevice;
-    var koef = mobile ? 0.6 : 0.8; // Зменшив масштаб для мобільних пристроїв
+    var koef = mobile ? 0.4 : 0.8; // Зменшив масштаб для мобільних пристроїв
     var canvas = document.getElementById('heart');
     var ctx = canvas.getContext('2d');
     var width = canvas.width = koef * innerWidth;
@@ -49,11 +49,11 @@ var init = function () {
         ctx.fillRect(0, 0, width, height);
     });
 
-    var traceCount = mobile ? 30 : 50;
+    var traceCount = mobile ? 20 : 50;
     var pointsOrigin = [];
-    var dr = mobile ? 0.2 : 0.1;
+    var dr = mobile ? 0.3 : 0.1;
     for (var i = 0; i < Math.PI * 2; i += dr) {
-        pointsOrigin.push(scaleAndTranslate(heartPosition(i), 180, 12, 0, 0));
+        pointsOrigin.push(scaleAndTranslate(heartPosition(i), 120, 8, 0, 0));
     }
     var heartPointsCount = pointsOrigin.length;
 
